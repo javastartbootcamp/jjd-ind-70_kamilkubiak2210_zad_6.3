@@ -3,8 +3,8 @@ package pl.javastart.task;
 import java.util.Scanner;
 
 public class Table {
-    private static final int MAX_NUMBER_OF_ROWS = 100;
-    private static final int MAX_NUMBER_OF_COLUMNS = 100;
+    private final int maxNumberOfRows = 100;
+    private final int maxNumberOfColumns = 100;
 
     public void tableGenerator() {
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Table {
         int numberOfColumns = scanner.nextInt();
 
         int[][] numbers = new int[numberOfRows][numberOfColumns];
-        if (numberOfRows > MAX_NUMBER_OF_ROWS || numberOfColumns > MAX_NUMBER_OF_COLUMNS) {
+        if (numberOfRows > maxNumberOfRows || numberOfColumns > maxNumberOfColumns) {
             System.out.println("goodbye");
         } else {
             for (int i = 0; i < numberOfRows; i++) {
