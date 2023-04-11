@@ -3,8 +3,8 @@ package pl.javastart.task;
 import java.util.Scanner;
 
 public class Table {
-    private final int maxNumberOfRows = 100;
-    private final int maxNumberOfColumns = 100;
+    private static final int MAX_NUMBER_OF_ROWS = 100;
+    private static final int MAX_NUMBER_OF_COLUMNS = 100;
 
     public void tableGenerator() {
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Table {
         int numberOfColumns = scanner.nextInt();
 
         int[][] numbers = new int[numberOfRows][numberOfColumns];
-        if (numberOfRows > maxNumberOfRows || numberOfColumns > maxNumberOfColumns) {
+        if (numberOfRows > MAX_NUMBER_OF_ROWS || numberOfColumns > MAX_NUMBER_OF_COLUMNS) {
             System.out.println("goodbye");
         } else {
             for (int i = 0; i < numberOfRows; i++) {
@@ -23,20 +23,21 @@ public class Table {
                     numbers[i][j] = i * j;
                 }
             }
-            printTable(numberOfRows, numberOfColumns, numbers);
+            printTable(numbers);
         }
     }
 
-    private static void printTable(int numberOfRows, int numberOfColumns, int[][] numbers) {
-        for (int i = 0; i < numberOfRows; i++) {
-            for (int j = 0; j < numberOfColumns; j++) {
-                System.out.printf("%3d", numbers[i][j]);
+    private static void printTable(int[][] numbers) {
+        int count = 4;
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 0; j < numbers[0].length; j++) {
+                System.out.printf("%" + count + "d", numbers[i][j]);
                 System.out.print(" |");
             }
             System.out.println();
 
-            for (int j = 0; j < numberOfColumns; j++) {
-                System.out.print("-----");
+            for (int j = 0; j < numbers[0].length; j++) {
+                System.out.print("------");
             }
             System.out.println();
         }
